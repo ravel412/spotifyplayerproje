@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "645012093865",
+    "project_id": "muzikcalar-961e8",
+    "storage_bucket": "muzikcalar-961e8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645012093865:android:346ebba6077831b3e4a2b8",
+        "android_client_info": {
+          "package_name": "com.example.mobilproje"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2ZPEHqsVfhG9aOe82_LY3WptPXLWLGDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645012093865:android:f0f2118e626dacf1e4a2b8",
+        "android_client_info": {
+          "package_name": "com.example.spotifplayer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2ZPEHqsVfhG9aOe82_LY3WptPXLWLGDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
