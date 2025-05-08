@@ -41,7 +41,7 @@ dependencies {
     implementation libs.activity
     implementation libs.constraintlayout
     implementation files('C:\\Users\\ahmet\\Desktop\\spotifplayer\\app\\libs\\spotify-app-remote-release-0.8.0.aar')
-    testImplementation libs.junit
+
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     implementation 'com.spotify.android:auth:1.2.5'
@@ -51,7 +51,7 @@ dependencies {
     // Retrofit için
     implementation 'com.google.firebase:firebase-firestore:24.9.0'
     implementation platform('com.google.firebase:firebase-bom:33.13.0')
-
+    testImplementation 'junit:junit:4.13.2'
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies

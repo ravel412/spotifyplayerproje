@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="backgroundColor">#000000</color>       <!-- Siyah arka plan -->
+    <color name="textColor">#FFFFFF</color>             <!-- Beyaz yazı -->
+    <color name="secondaryTextColor">#FFFFFF</color>
+    <color name="dividerColor">#444444</color>
+    <color name="controlBarBackground">#111111</color>
+    <color name="hintColor">#999999</color>
+    <color name="buttonText">#000000</color>
+    <color name="buttonSecondaryText">#FFFFFF</color>
+    <color name="black">#FFFFFF</color>   <!-- ters olarak tanımlanıyor -->
+    <color name="white">#000000</color>
+    <color name="gray">#BBBBBB</color>
+    <color name="background">#000000</color>
+    <color name="buttonBackground">#1DB954</color>
+    <color name="spinnerTextColor">#FFFFFF</color>
+    <color name="spinnerBackgroundColor">#FFFFFF</color> <!-- Beyaz iç kısım -->
+
+</resources>

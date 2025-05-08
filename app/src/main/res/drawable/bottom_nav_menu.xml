@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
-        android:icon="@android:drawable/ic_menu_view"
-        android:title="Ana Sayfa" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_favorites"
-        android:icon="@android:drawable/ic_menu_save"
-        android:title="Favoriler" />
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/nav_favorites" />
 </menu>

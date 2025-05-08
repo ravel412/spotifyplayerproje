@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">spotifplayer</string>
+    <string name="app_name">SpotifPlayer</string>
+    <string name="login_title">🎧 Giriş Yap</string>
+    <string name="email_hint">E-posta</string>
+    <string name="password_hint">Şifre</string>
+    <string name="login">Giriş Yap</string>
+    <string name="register">Kayıt Ol</string>
+
+    <!-- Medya kontrol stringleri -->
+    <string name="previous">Önceki</string>
+    <string name="rewind">Geri Sar</string>
+    <string name="play">Oynat</string>
+    <string name="pause">Duraklat</string>
+    <string name="next">Sonraki</string>
+    <string name="forward">İleri Sar</string>
+    <string name="play_pause">Oynat / Duraklat</string>
+    <string name="confirm_password_hint">Şifreyi Tekrar Girin</string>
+    <string name="back">Geri Dön</string>
+    <!-- MainActivity için eklenenler -->
+    <string name="search_hint">🔍 Şarkı ara...</string>
+    <string name="profile_button_desc">Profil</string>
+    <string name="track_placeholder">Şarkı adı</string>
+    <string name="logout">Çıkış Yap</string>
+    <string name="top_10_playlist">🔥 Top 10 Çalma Listesi</string>
+    <string name="favorite_songs">⭐ Favori Şarkılar</string>
+    <string name="search_results">🔍 Arama Sonuçları</string>
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_favorites">Favoriler</string>
+
+    <!-- Ayarlar için dil seçenekleri -->
+    <string-array name="languages">
+        <item>TR</item>
+        <item>EN</item>
+    </string-array>
 </resources>
+

@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -19,6 +20,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -56,15 +58,14 @@ import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String CLIENT_ID = "";
-    private static final String REDIRECT_URI = "";
+    private static final String CLIENT_ID = "37375ee1cd3a49ffb56518c44bfaff95";
+    private static final String REDIRECT_URI = "spotifplayer://callback";
     private static final int REQUEST_CODE = 1337;
     private static final String CHANNEL_ID = "player_channel";
     private static final String ACTION_PLAY_PAUSE = "com.example.spotifplayer.PLAY_PAUSE";
 
     private SpotifyAppRemote spotifyAppRemote;
     private String accessToken;
-
     private EditText searchEditText;
     private ListView resultsListView;
     private TrackAdapter adapter;
@@ -122,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         registerReceiver(notificationReceiver, new IntentFilter(ACTION_PLAY_PAUSE));
-
+        TextView trackText = findViewById(R.id.currentTrackText);
+        trackText.setText(getString(R.string.track_placeholder)); // Eğer dil dosyalarında varsa
 
         ImageButton profileButton = findViewById(R.id.profileButton);
         profileButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
-
         mediaSession = new MediaSessionCompat(this, "SpotifySession");
         mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS
                 | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
@@ -149,11 +150,14 @@ public class MainActivity extends AppCompatActivity {
         positionText = findViewById(R.id.positionText);
         durationText = findViewById(R.id.durationText);
 
+
         headerView = new TextView(this);
-        headerView.setText("\uD83D\uDD25 Top 10 Playlist");
+        headerView.setText(getString(R.string.top_10_playlist));
+
+        headerView.setText(getString(R.string.favorite_songs));
         headerView.setTextSize(22);
         headerView.setPadding(32, 32, 32, 16);
-        headerView.setTextColor(getResources().getColor(android.R.color.black));
+        headerView.setTextColor(getResources().getColor(R.color.textColor, getTheme()));
         resultsListView.addHeaderView(headerView);
         adapter = new TrackAdapter(this, trackNames, new TrackAdapter.OnTrackActionListener() {
             @Override public void onPlayClick(int position) {
@@ -202,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
                 fetchTopTracks();
-                headerView.setText("\uD83D\uDD25 Top 10 Playlist");
+                headerView.setText(R.string.top_10_playlist);
                 return true;
             } else if (id == R.id.nav_favorites) {
                 fetchFavoriteTracks(); // 🔥 İşte burası önemli
@@ -218,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         searchEditText.setOnEditorActionListener((v, actionId, event) -> {
             if (accessToken != null) {
                 searchTracks(searchEditText.getText().toString());
-                headerView.setText("\uD83D\uDD25 Arama Sonuçları");
+                headerView.setText(getString(R.string.search_results));
             } else {
                 Toast.makeText(this, "Token alınamadı", Toast.LENGTH_SHORT).show();
             }
@@ -231,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
             @Override public void afterTextChanged(Editable s) {
                 if (s.toString().trim().isEmpty()) {
                     fetchTopTracks();
-                    headerView.setText("\uD83D\uDD25 Top 10 Playlist");
+                    headerView.setText(R.string.top_10_playlist);
                 }
             }
         });
@@ -282,6 +286,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        String lang = LocaleHelper.getSavedLanguage(newBase); // tr veya en
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+
+        super.attachBaseContext(newBase.createConfigurationContext(config));
+    }
+
 
     @Override protected void onResume() {
         super.onResume();
@@ -374,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
                     }, true);
 
                     resultsListView.setAdapter(adapter);
-                    headerView.setText("⭐ Favori Şarkılar");
+                    headerView.setText(getString(R.string.favorite_songs));
                 })
                 .addOnFailureListener(e ->
                         Toast.makeText(MainActivity.this, "Favoriler alınamadı: " + e.getMessage(), Toast.LENGTH_SHORT).show());
@@ -610,7 +628,7 @@ public class MainActivity extends AppCompatActivity {
                                                     trackData.put("trackUri", trackUri);
                                                     trackData.put("trackName", trackNames.get(position).split(" - ")[0]);
                                                     trackData.put("artistName", trackNames.get(position).split(" - ")[1]);
-                                                    trackData.put("timestamp", System.currentTimeMillis()); // 🔥 Burası eklendi
+                                                    trackData.put("timestamp", System.currentTimeMillis());
 
 
                                                     db.collection("users").document(userId).collection("favorites")
@@ -635,7 +653,7 @@ public class MainActivity extends AppCompatActivity {
 
                             resultsListView.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
-                            headerView.setText("🔥 Top 10 Playlist");
+                            headerView.setText(R.string.top_10_playlist);
                         }
                     }
 

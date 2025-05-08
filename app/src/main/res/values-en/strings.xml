@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SpotifPlayer</string>
+    <string name="login_title">🎧 Login</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
+    <!-- Media control strings -->
+    <string name="previous">Previous</string>
+    <string name="rewind">Rewind</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="next">Next</string>
+    <string name="forward">Forward</string>
+    <string name="play_pause">Play / Pause</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="back">Go Back</string>
+
+    <!-- MainActivity additions -->
+    <string name="search_hint">🔍 Search song...</string>
+    <string name="profile_button_desc">Profile</string>
+    <string name="track_placeholder">Track name</string>
+    <string name="logout">Logout</string>
+    <string name="top_10_playlist">🔥 Top 10 Playlist</string>
+    <string name="favorite_songs">⭐ Favorite Songs</string>
+    <string name="search_results">🔍 Search Results</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_favorites">Favorites</string>
+
+    <!-- Language options -->
+    <string-array name="languages">
+        <item>TR</item>
+        <item>EN</item>
+    </string-array>
+</resources>
+
+

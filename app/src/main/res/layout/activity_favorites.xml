@@ -4,20 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA">
+    android:background="@color/backgroundColor">
 
     <!-- Liste -->
     <ListView
         android:id="@+id/favoritesListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:divider="@android:color/darker_gray"
+        android:divider="@color/dividerColor"
         android:dividerHeight="0.5dp"
-        android:background="@android:color/white"
+        android:background="@color/backgroundColor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/playerBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Media Player Bar -->
     <LinearLayout
@@ -25,7 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FFFFFF"
+        android:background="@color/controlBarBackground"
         android:visibility="gone"
         android:padding="12dp"
         android:elevation="8dp"
@@ -46,7 +46,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_media_previous"
                 android:background="@android:color/transparent"
-                android:contentDescription="Önceki"/>
+                android:contentDescription="@string/previous" />
 
             <ImageButton
                 android:id="@+id/rewindButton"
@@ -54,7 +54,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_media_rew"
                 android:background="@android:color/transparent"
-                android:contentDescription="Geri"/>
+                android:contentDescription="@string/rewind" />
 
             <ImageButton
                 android:id="@+id/playPauseButton"
@@ -62,7 +62,7 @@
                 android:layout_height="48dp"
                 android:src="@android:drawable/ic_media_play"
                 android:background="@android:color/transparent"
-                android:contentDescription="Oynat/Duraklat"/>
+                android:contentDescription="@string/play_pause" />
 
             <ImageButton
                 android:id="@+id/forwardButton"
@@ -70,7 +70,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_media_ff"
                 android:background="@android:color/transparent"
-                android:contentDescription="İleri"/>
+                android:contentDescription="@string/forward" />
 
             <ImageButton
                 android:id="@+id/nextButton"
@@ -78,7 +78,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_media_next"
                 android:background="@android:color/transparent"
-                android:contentDescription="Sonraki"/>
+                android:contentDescription="@string/next" />
         </LinearLayout>
 
         <TextView
@@ -88,7 +88,7 @@
             android:text="Şarkı adı"
             android:gravity="center"
             android:textSize="16sp"
-            android:textColor="#000000"
+            android:textColor="@color/textColor"
             android:layout_marginBottom="4dp" />
 
         <SeekBar
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:text="0:00"
                 android:textSize="12sp"
-                android:textColor="#555555" />
+                android:textColor="@color/secondaryTextColor" />
 
             <View
                 android:layout_width="0dp"
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:text="0:00"
                 android:textSize="12sp"
-                android:textColor="#555555" />
+                android:textColor="@color/secondaryTextColor" />
         </LinearLayout>
     </LinearLayout>
 
@@ -129,11 +129,11 @@
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="@color/controlBarBackground"
         app:menu="@drawable/bottom_nav_menu"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
+        app:itemIconTint="@color/textColor"
+        app:itemTextColor="@color/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
